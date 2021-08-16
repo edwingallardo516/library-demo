@@ -1,0 +1,21 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify -g uglifyify js/main.js > js/bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql-request": "^3.5.0",
+    "handlebars": "^4.7.7"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "uglifyify": "^5.0.2"
+  }
+}
