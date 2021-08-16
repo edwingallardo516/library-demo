@@ -1,0 +1,25 @@
+{
+  "name": "library-demo",
+  "version": "1.0.0",
+  "description": "Demo de biblioteca virtual",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "library",
+    "biblioteca"
+  ],
+  "author": "Edwin Gallardo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1",
+    "graphql-tools": "^8.1.0",
+    "mongo": "^0.1.0"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
+  }
+}

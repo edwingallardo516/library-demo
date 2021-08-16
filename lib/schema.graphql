@@ -1,0 +1,51 @@
+
+type Book {
+    _id: Int!
+    title: String!
+    isbn: String!
+    pageCount: Int
+    thumbnailUrl: String
+    shortDescription: String
+    longDescription: String
+    authors: [String!]
+    categories: [String!]
+}
+
+type Query {
+    "Devuelve todos los libros"
+    getBooks: [Book]
+    "Devuelve un curso"
+    getBook(isbn: String!): Book
+}
+
+input BookInput {
+    _id : Int
+    title: String!
+    isbn: String
+    pageCount: Int
+    thumbnailUrl: String
+    shortDescription: String
+    longDescription: String
+    authors: [String!]
+    categories: [String!]
+}
+
+input BookEditInput {
+    title: String
+    isbn: String
+    pageCount: Int
+    thumbnailUrl: String
+    shortDescription: String
+    longDescription: String
+    authors: [String]
+    categories: [String]
+}
+
+type Mutation {
+    "Agregar Libro"
+    addBook(input: BookInput!): Book
+    "Editar Libro"
+    editBook(isbn:String!, input:BookEditInput): Book
+    "Eliminar Libro"
+    removeBook(isbn: String!):String  
+}
