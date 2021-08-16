@@ -16,6 +16,8 @@ type Query {
     getBooks: [Book]
     "Devuelve un curso"
     getBook(isbn: String!): Book
+    "Ejecuta una busqueda globlal"
+    searchBook(keyword: String!) : [Book]
 }
 
 input BookInput {
