@@ -79,7 +79,26 @@ async function addBook() {
   document.getElementById('result').innerHTML = html
 }
 
+async function deleteBook() {
+  const mutation = `
+  mutation deletebook($isbn: String!){
+    removeBook(isbn:$isbn)
+  }
+  `
+  const Date = { isbn : document.getElementById('delete-isbn').value}
+  let html
+
+  try {
+    await request(endpoint, mutation, Date)
+    html = templateData({ items: [{title:"Libro eliminado con éxito"}] });
+  } catch (error) {
+    html = templateData({ error: error })
+  }
+  document.getElementById('result').innerHTML = html
+}
+
 window.onload = () => {
   document.getElementById('btn-search').addEventListener('click', search)
   document.getElementById('btn-add').addEventListener('click', addBook)
+  document.getElementById('btn-delete').addEventListener('click', deleteBook)
 }

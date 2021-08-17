@@ -903,6 +903,7 @@ button {
 
 .nav li:hover > ul {
   display:block;
+  z-index: 1;
 }
 
 .nav li ul li {
@@ -919,6 +920,10 @@ button {
   margin: 0;
   padding: 5px 0;
   border-radius: 5px;
+}
+
+#btn-delete {
+  background: #ca3f3f;
 }
 
 .s130 form .inner-form .input-field {
