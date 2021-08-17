@@ -30,3 +30,5 @@ app.use('/api', graphqlHTTP({
   app.listen(port, () => {
     console.log('Server is listening at http://localhost:3000/api')
   })
+
+  // npm run start y npm run bundle en la carpeta public

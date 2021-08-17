@@ -97,8 +97,37 @@ async function deleteBook() {
   document.getElementById('result').innerHTML = html
 }
 
+async function editBook() {
+  const mutation = `
+  mutation editBook($isbn: String!,$inputDate: BookEditInput!){
+    editBook(isbn:$isbn,input:$inputDate){
+      _id
+      title
+      authors
+    }
+  }`
+  const inputDate = { 
+    isbn : document.getElementById('edit-isbn').value,
+    inputDate:{
+      title      : document.getElementById('edit-title').value,
+      authors    : [document.getElementById('edit-author').value],
+      categories : [document.getElementById('edit-categoria').value]}
+  }
+  let html
+
+  try {
+    await request(endpoint, mutation, inputDate)
+    html = templateData({ items: [{title:"Libro editado con éxito"}] });
+  } catch (error) {
+    html = templateData({ error: error })
+  }
+  document.getElementById('result').innerHTML = html
+}
+
+
 window.onload = () => {
   document.getElementById('btn-search').addEventListener('click', search)
   document.getElementById('btn-add').addEventListener('click', addBook)
   document.getElementById('btn-delete').addEventListener('click', deleteBook)
+  document.getElementById('btn-edit').addEventListener('click', editBook)
 }

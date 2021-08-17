@@ -922,6 +922,10 @@ button {
   border-radius: 5px;
 }
 
+.nav button {
+  cursor: pointer;
+}
+
 #btn-delete {
   background: #ca3f3f;
 }
