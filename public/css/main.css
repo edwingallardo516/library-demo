@@ -7,6 +7,9 @@ html {
   /* 2 */
 }
 
+ul, ol {
+  list-style:none;
+}
 /* Sections
    ========================================================================== */
 /**
@@ -835,7 +838,6 @@ button {
 .s130 form {
   width: 100%;
   max-width: 790px;
-  padding-top: 24vh;
 }
 
 .s130 form .inner-form {
@@ -849,7 +851,74 @@ button {
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   border-radius: 34px;
   overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/*------ Config agregado -----------*/
+.s130 form .inner-form-config {
+  display: flex;
+  width: 100%;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 34px;
+  justify-content: center;
+  overflow: hidden;
   margin-bottom: 30px;
+  background-color: #18516e;
+}
+
+.nav{
+  margin: 10px;
+  padding: 0;
+}
+
+.nav input {
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+}
+
+.nav a {
+  color:#fff;
+  text-decoration:none;
+  padding:10px 12px;
+}
+
+.nav > li {
+  float:left;
+}
+
+.nav li {
+  display:block;
+  padding:10px 12px;
+}
+
+.nav li ul {
+  display:none;
+  position:absolute;
+  min-width:100px;
+  padding: 0;
+  border-radius: 5px;
+  background-color: #18516e;
+}
+
+.nav li:hover > ul {
+  display:block;
+}
+
+.nav li ul li {
+  position:relative;
+  margin: 10px;
+  padding: 0;
+}
+
+.btn-nav {
+  width: 100%;
+  background: #98ca3f;
+  color: #FFFFFF;
+  border: none;
+  margin: 0;
+  padding: 5px 0;
+  border-radius: 5px;
 }
 
 .s130 form .inner-form .input-field {
@@ -988,7 +1057,7 @@ button {
   align-items: flex-start;
   flex-flow: row wrap;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 #result .item {

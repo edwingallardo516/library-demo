@@ -12,10 +12,13 @@ const template = `
 <div class="item">
   <h1>{{title}}</h1>
   {{#with authors}}
-    <p>{{../authors}}</p>
+    <p> Autor : {{../authors}}</p>
   {{/with}}
   {{#with shortDescription }}
-    <p>{{../shortDescription}}</p>
+    <p> Descripción: {{../shortDescription}}</p>
+  {{/with}}
+  {{#with isbn}}
+    <p> ISBN : {{../isbn}}</p>
   {{/with}}
   
 </div>
@@ -30,7 +33,7 @@ async function search () {
         title
         authors
         shortDescription
-        
+        isbn
       }
     }
   `
@@ -50,6 +53,33 @@ async function search () {
   document.getElementById('result').innerHTML = html
 }
 
+async function addBook() {
+  const mutation = `
+  mutation newbook($inputDate: BookInput!){
+    addBook(input:$inputDate) {
+      _id
+      title
+    }
+  }
+  `
+  const inputDate = { inputDate:{
+    title      : document.getElementById('add-title').value,
+    authors    : [document.getElementById('add-author').value],
+    categories : [document.getElementById('add-categoria').value],
+    isbn       : document.getElementById('add-isbn').value}
+  }
+  let html
+
+  try {
+    await request(endpoint, mutation, inputDate)
+    html = templateData({ items: [{title:"Libro guardado con éxito"}] });
+  } catch (error) {
+    html = templateData({ error: error })
+  }
+  document.getElementById('result').innerHTML = html
+}
+
 window.onload = () => {
   document.getElementById('btn-search').addEventListener('click', search)
+  document.getElementById('btn-add').addEventListener('click', addBook)
 }
